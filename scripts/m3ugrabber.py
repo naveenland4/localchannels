@@ -5,10 +5,9 @@ import requests
 
 
 print('#EXTM3U')
-
 channel_list = open('../channel_list.json')
 channel_data = json.load(channel_list)
-for channel in youtube_channel_data:
+for channel in channel_data:
     grp_title = channel['group-title']
     channel_logo = channel['tvg-logo']
     channel_id = channel['tvg-id']
@@ -16,7 +15,7 @@ for channel in youtube_channel_data:
     print(
         f'\n#EXTINF:-1 group-title="{grp_title}" tvg-logo="{channel_logo}" tvg-id="{channel_id}", {channel_name}')
 
-    url = channel['url']
+    streaming_url = channel['url']
     grab(url)
 
 m3u8_channel_list = open('../m3u8_channel_list.json')
