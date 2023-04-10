@@ -30,15 +30,15 @@ def grab(url):
 
 print('#EXTM3U')
 
-youtube_channel_list = open('../youtube_channel_list.json')
-youtube_channel_data = json.load(youtube_channel_list)
+channel_list = open('../channel_list.json')
+channel_data = json.load(channel_list)
 for channel in youtube_channel_data:
     grp_title = channel['group-title']
-    tvg_logo = channel['tvg-logo']
-    tvg_id = channel['tvg-id']
-    ch_name = channel['ch_name']
+    channel_logo = channel['tvg-logo']
+    channel_id = channel['tvg-id']
+    channel_name = channel['channel_name']
     print(
-        f'\n#EXTINF:-1 group-title="{grp_title}" tvg-logo="{tvg_logo}" tvg-id="{tvg_id}", {ch_name}')
+        f'\n#EXTINF:-1 group-title="{grp_title}" tvg-logo="{channel_logo}" tvg-id="{channel_id}", {channel_name}')
 
     url = channel['url']
     grab(url)
@@ -47,11 +47,11 @@ m3u8_channel_list = open('../m3u8_channel_list.json')
 m3u8_channel_data = json.load(m3u8_channel_list)
 for channel in m3u8_channel_data:
     grp_title = channel['group-title']
-    tvg_logo = channel['tvg-logo']
-    tvg_id = channel['tvg-id']
-    ch_name = channel['ch_name']
+    channel_logo = channel['tvg-logo']
+    channel_id = channel['tvg-id']
+    channel_name = channel['channel_name']
     print(
-        f'\n#EXTINF:-1 group-title="{grp_title}" tvg-logo="{tvg_logo}" tvg-id="{tvg_id}", {ch_name}')
+        f'\n#EXTINF:-1 group-title="{grp_title}" tvg-logo="{channel_logo}" tvg-id="{channel_id}", {channel_name}')
 
     url = channel['url']
     print(url)
