@@ -8,7 +8,7 @@ print('#EXTM3U')
 
 channel_list = open('../channel_list.json')
 channel_data = json.load(channel_list)
-for channel_list in channel_data:
+for channel in channel_list:
     grp_title = channel['group-title']
     channel_logo = channel['tvg-logo']
     channel_id = channel['tvg-id']
