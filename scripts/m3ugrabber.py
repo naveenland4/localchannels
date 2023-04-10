@@ -5,6 +5,7 @@ import requests
 
 
 print('#EXTM3U')
+
 channel_list = open('../channel_list.json')
 channel_data = json.load(channel_list)
 for channel in channel_data:
