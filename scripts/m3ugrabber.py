@@ -26,6 +26,22 @@ jobs:
     - name: Convert JSON to M3U
       run: |
         python convert.py input.json output.m3u
+        
+      print('#EXTM3U')
+
+channel_list = open('../channel_list.json')
+channel_data = json.load(channel_list)
+for channel in channel_list:
+    grp_title = channel['group-title']
+    channel_logo = channel['tvg-logo']
+    channel_id = channel['tvg-id']
+    channel_name = channel['channel_name']
+    print(
+        f'\n#EXTINF:-1 group-title="{grp_title}" tvg-logo="{channel_logo}" tvg-id="{channel_id}", {channel_name}')
+
+    streaming_url = channel['url']
+    grab(url)
+    print(url)
 
     - name: Commit Changes
       run: |
